@@ -1,3 +1,17 @@
-<p>The Home page Loading ...</p>
-<app-about></app-about>
-<app-admin></app-admin>
+      <p>The Home page Loading ...</p>
+      <label>Service name:</label>
+      <!--<input type="text" class="form-control" (input)="onUpdateService($event)">-->
+        <input type="text" class="form-control" [(ngModel)]="serviceName" placeholder="Service name">
+
+      <!--<p>{{ serviceName }}</p>-->
+      <app-about></app-about>
+      <app-admin></app-admin>
+<button class="btn btn-primary" [disabled]="!allowNewServer"
+(click)="onAddService()">Add more</button>
+      <!--<p>{{allowNewServer}}</p>-->
+      <!--<p> {{newService}} </p>-->
+      <p *ngIf="serviceAdded; else noService">New Service has been added. Name is: {{ serviceName }}</p>
+      <app-services *ngFor="let service of services"></app-services>
+      <ng-template #noService>
+        <p>No Service availaible</p>
+      </ng-template>

@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './admin.component.html'
 })
 export class AdminComponent {
+  username = 'Henry odinaka ';
+  getUsername() {
+    return this.username;
+  }
 }
